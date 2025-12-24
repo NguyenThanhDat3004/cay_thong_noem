@@ -23,10 +23,10 @@ import {
 const TOTAL_NUMBERED_PHOTOS = 31;
 
 const bodyPhotoPaths = [
-  "/photos/a.jpg",
+  `${import.meta.env.BASE_URL}photos/a.jpg`,
   ...Array.from(
     { length: TOTAL_NUMBERED_PHOTOS },
-    (_, i) => `/photos/${i + 1}.jpg`
+    (_, i) => `${import.meta.env.BASE_URL}photos/${i + 1}.jpg`
   ),
 ];
 
@@ -171,7 +171,7 @@ const PhotoOrnaments = ({
   const hoverIndexRef = useRef(-1);
   const lockedIndexRef = useRef(-1); // Khóa ảnh đã chọn
   const wasIndexUpRef = useRef(false); // Trạng thái trước đó
-  const originalRotationRef = useRef<THREE.Euler[]>([]);
+  // const originalRotationRef = useRef<THREE.Euler[]>([]);
 
   const borderGeometry = useMemo(() => new THREE.PlaneGeometry(1.2, 1.5), []);
   const photoGeometry = useMemo(() => new THREE.PlaneGeometry(1, 1), []);
